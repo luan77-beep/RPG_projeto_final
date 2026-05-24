@@ -6,16 +6,16 @@
 class Inimigo {
 private:
     std::string nome;
-    int vida;
-    int dano;
+    double vida;
+    double dano;
 
 public:
-    Inimigo(std::string nome, int vida, int dano);
+    Inimigo(std::string nome, double vida, double dano);
     std::string getNome() {return nome;}
-    int getVida() {return vida;}
-    int getDano() {return dano;}
-    void setVida(int novaVida) {vida = novaVida;}
-    void setDano(int novoDano) {dano = novoDano;}
+    double getVida() {return vida;}
+    double getDano() {return dano;}
+    void setVida(double novaVida) {vida = novaVida;}
+    void setDano(double novoDano) {dano = novoDano;}
 };
 
 #endif
