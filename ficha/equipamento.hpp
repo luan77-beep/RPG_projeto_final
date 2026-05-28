@@ -1,41 +1,20 @@
 #ifndef EQUIPAMENTO_HPP
 #define EQUIPAMENTO_HPP
 
-class IEquipamento{
-public:
-    virtual double getDano() = 0;
-    virtual void setDano(double novoDano) = 0;
+double danoEspada = 12.5, danoAdagas = 10.5, danoArco = 13.4, danoLanca = 11.6;
+
+enum Equipaveis{
+    espada,
+    adagas,
+    lanca,
+    arco,
 };
 
-class Espada : public IEquipamento{
-private:
-    inline static double dano = 12.8;
-public:
-    double getDano() override {return dano;}
-    void setDano(double novoDano) override {dano = novoDano;}
+struct Equipamento {
+    std::string nome;
+    double dano;
 };
 
-class Adagas : public IEquipamento{
-private:
-    inline static double dano = 10.5;
-public:
-    double getDano() override {return dano;}
-    void setDano(double novoDano) override {dano = novoDano;}
-};
+Equipamento setEquipamento(Equipaveis e, double danoBonus);
 
-class Lanca: public IEquipamento {
-private:
-     inline static double dano = 11.6;
-public:
-    double getDano() override {return dano;}
-    void setDano(double novoDano) override {dano = novoDano;}
-};
-
-class Arco: public IEquipamento{
-private:
-    inline static double dano = 13.4;
-public:
-    double getDano() override {return dano;}
-    void setDano(double novoDano) {dano = novoDano;}
-};
 #endif

@@ -4,7 +4,7 @@
 #include "classe.hpp"
 #include "ficha.hpp"
 
-Ficha::Ficha(std::string nome, int idade, IClasse* classe, IEquipamento* equipamento){
+Ficha::Ficha(std::string nome, int idade, IClasse* classe, Equipamento* equipamento){
     this -> nome = nome,
     this -> idade = idade,
     this -> classe = classe,
@@ -16,6 +16,6 @@ void Ficha::status() {
     std::cout << "Vida: " << vida << "\n";
     std::cout << "Idade: " << idade << "\n";
     std::cout << "Classe: " << classe << "\n";
-    std::cout << "Arma: " << equipamento <<equipamento->getDano() << "\n";
+    std::cout << "Arma: " << equipamento -> nome << " | Dano: " << equipamento -> dano << std::endl;
     std::cout << "Resistência: " << resistencia << std::endl;
 }

@@ -8,7 +8,7 @@
 void combate(Ficha &jogador, Inimigo &inimigo){
     std::cout << "Um inimigo apareceu: " << inimigo.getNome() << " com " << inimigo.getVida() << " de vida e " << inimigo.getDano() << " de dano!\n";
     double danoInimigo = inimigo.getDano();
-    double danoJogador = jogador.getEquipamento().getDano();
+    double danoJogador = jogador.getEquipamento().dano;
     bool playerTurno;
 
     int escolhaPar;
