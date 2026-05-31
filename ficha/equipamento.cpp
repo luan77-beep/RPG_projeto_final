@@ -1,19 +1,21 @@
-#include <string>
 #include "equipamento.hpp"
 
+double danoEspada = 7.5, danoAdagas = 7.0, danoArco = 9.0, danoLanca = 8.0;
 Equipamento setEquipamento(Equipaveis e, double danoBonus){
+    Equipamento equip {};
     switch (e){
         case (espada):
-            return Equipamento {"espada", danoEspada * ( 1 + danoBonus)};
+            equip = {"espada", danoEspada * ( 1 + danoBonus)};
             break;
         case (adagas):
-            return Equipamento {"adagas", danoAdagas * (1 + danoBonus)};
+            equip = {"adagas", danoAdagas * (1 + danoBonus)};
             break;
         case (lanca):
-            return Equipamento {"lança", danoLanca * (1+ danoBonus)};
+            equip = {"lança", danoLanca * (1+ danoBonus)};
             break;
         case (arco):
-            return Equipamento {"arco", danoArco * (1 + danoBonus)};
+            equip = {"arco", danoArco * (1 + danoBonus)};
             break;
     }
+    return equip;
 }

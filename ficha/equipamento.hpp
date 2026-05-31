@@ -1,7 +1,9 @@
 #ifndef EQUIPAMENTO_HPP
 #define EQUIPAMENTO_HPP
 
-double danoEspada = 12.5, danoAdagas = 10.5, danoArco = 13.4, danoLanca = 11.6;
+#include <string>
+
+extern double danoEspada, danoAdagas, danoArco, danoLanca;
 
 enum Equipaveis{
     espada,

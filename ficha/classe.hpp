@@ -5,6 +5,7 @@
 
 class IClasse{
 public:
+	virtual std::string getNome() = 0;
 	virtual double getVida() = 0;
 	virtual double getBonusDano()= 0;
 	virtual double getBonusResistencia() = 0;
@@ -16,8 +17,11 @@ public:
 
 class Mago: public IClasse{
 private:
-	inline static double vida = 36.0, bonusDano = 0.1, bonusResistencia = 0.01;
+	const std::string nome = "Mago";
+	inline static double vida = 74.0, bonusDano = 0.1, bonusResistencia = 0.01;
 public:
+	Mago() {}
+	std::string getNome() override {return nome;}
 	double getVida() override {return vida;}
 	double getBonusDano() override {return bonusDano;}
 	double getBonusResistencia() override {return bonusResistencia;}
@@ -28,9 +32,12 @@ public:
 
 class Guerreiro: public IClasse{
 private:
-	inline static double vida = 41.0, bonusDano = 0.05, bonusResistencia = 0.04;
+	const std::string nome = "Guerreiro";
+	inline static double vida = 80.0, bonusDano = 0.05, bonusResistencia = 0.04;
 
 public:
+	Guerreiro() {}
+	std::string getNome() {return nome;}
 	double getVida() override {return vida;}
 	double getBonusDano() override {return bonusDano;}
 	double getBonusResistencia() override {return bonusResistencia;}
@@ -42,9 +49,12 @@ public:
 
 class Arqueiro: public IClasse{
 private:
-	inline static double vida = 39.0, bonusDano = 0.075, bonusResistencia = 0.025;
+	const std::string nome = "Arqueiro";
+	inline static double vida = 77.0, bonusDano = 0.075, bonusResistencia = 0.025;
 
-public: 
+public:
+	Arqueiro() {}
+	std::string getNome() {return nome;}
 	double getVida() override {return vida;}
 	double getBonusDano() override {return bonusDano;}
 	double getBonusResistencia() override {return bonusResistencia;}
