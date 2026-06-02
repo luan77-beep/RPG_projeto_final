@@ -31,7 +31,7 @@ g++ -std=c++17 main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecani
 #### No Windows (MinGW / PowerShell):
 
 ```powershell
-g++ -std=c++17 main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecanicas/combate.cpp -o jogo.exe
+g++ -std=c++17 main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecanicas/funcoes.cpp mecanicas/combate.cpp -o jogo.exe
 
 ```
 
