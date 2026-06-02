@@ -4,24 +4,6 @@
 
 Este é um projeto de um jogo de RPG baseado em texto para terminal desenvolvido em C++. O jogo apresenta um sistema dinâmico de escolha de classes (Mago, Guerreiro, Arqueiro), gerenciamento de equipamentos com bônus calculados em tempo real, mecânicas de combate baseadas em turnos com rolagem de dados interativa, além de efeitos estéticos como delays dramáticos e efeito de digitação (*typewriter*) no terminal.
 
-## 📌 Estrutura do Projeto
-
-O projeto está organizado de forma modular em múltiplos diretórios para separar as responsabilidades de cada entidade:
-
-
-├── main.cpp                 # Ponto de entrada do programa e fluxo do menu principal
-├── inimigo.hpp              # Definição da classe Inimigo
-├── inimigo.cpp              # Implementação dos métodos do Inimigo
-├── ficha/
-│   ├── ficha.hpp            # Definição do Personagem (Ficha) e seus atributos
-│   ├── ficha.cpp            # Implementação das regras de negócio do jogador
-│   ├── classe.hpp           # Interface IClasse e especializações (Mago, Guerreiro, Arqueiro)
-│   ├── equipamento.hpp      # Estrutura de Equipamento e enum de itens
-│   └── equipamento.cpp      # Lógica de instanciação de armas com bônus de dano
-└── mecanicas/
-    ├── combate.hpp          # Declaração do sistema de combate
-    └── combate.cpp          # Lógica do combate (turnos, dados, capturas de teclas e animação)
-
 ## 🛠️ Pré-requisitos
 
 Para compilar e executar este projeto, você precisará de:
@@ -42,7 +24,7 @@ Abra o terminal na raiz do projeto (onde o arquivo `main.cpp` está localizado) 
 #### No Linux / macOS:
 
 ```bash
-g++ -std=c++17 main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecanicas/combate.cpp -o jogo
+g++ -std=c++17 main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecanicas/funcoes.cpp mecanicas/combate.cpp -o jogo
 
 ```
 
@@ -61,7 +43,7 @@ Caso o seu ambiente possua a ferramenta `make` instalada, você pode criar um ar
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall
 
-SRC = main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecanicas/combate.cpp
+SRC = main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecanicas/funcoes.cpp mecanicas/combate.cpp
 OBJ = $(SRC:.cpp=.o)
 EXEC = jogo
 
@@ -110,5 +92,5 @@ Após realizar a compilação com sucesso usando qualquer um dos métodos acima,
 ## 🕹️ Funcionalidades Implementadas e Demonstração Técnica
 
 1. **Gestão Segura de Memória:** Alocação dinâmica polimórfica para as classes (`IClasse*`) e estruturas de armas (`Equipamento*`), com desalocação limpa no escopo correto, evitando vazamentos (*memory leaks*) e ponteiros inválidos (`free(): invalid pointer`).
-2. **Efeito de Digitação Dramática:** As mensagens de narrativa e ambientação utilizam um sistema de escoamento de buffer (`std::flush`) com pausas medidas por caractere, criando imersão de RPG clássico.
+2. **Efeito de Digitação:** As mensagens de narrativa e ambientação utilizam um sistema de escoamento de buffer (`std::flush`) com pausas medidas por caractere, criando imersão de RPG clássico.
 3. **Captura Avançada de Input:** Sistema de combate que interrompe o fluxo de execução esperando uma resposta física do hardware (pressionar a **Barra de Espaço** ou a **Seta para Cima**) para rolar os dados, sem a necessidade de pressionar a tecla *Enter*.
