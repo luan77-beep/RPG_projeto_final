@@ -15,7 +15,7 @@ Para compilar e executar este projeto, você precisará de:
 
 ## 🚀 Instruções de Compilação e Execução
 
-Como o projeto possui múltiplos arquivos de implementação (`.cpp`) distribuídos em pastas, a compilação precisa incluir todos os módulos de forma explícita. Escolha um dos métodos abaixo:
+Como o projeto possui múltiplos arquivos de implementação (`.cpp`) distribuídos em pastas, a compilação precisa incluir todos os módulos de forma explícita.
 
 ### Método 1: Compilação Direta via Terminal (g++)
 
@@ -34,41 +34,6 @@ g++ -std=c++17 main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecani
 g++ -std=c++17 main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecanicas/funcoes.cpp mecanicas/combate.cpp -o jogo.exe
 
 ```
-
-### Método 2: Utilizando Automação (Makefile)
-
-Caso o seu ambiente possua a ferramenta `make` instalada, você pode criar um arquivo chamado `Makefile` na raiz do projeto com o seguinte conteúdo para simplificar o processo:
-
-```makefile
-CXX = g++
-CXXFLAGS = -std=c++17 -Wall
-
-SRC = main.cpp inimigo.cpp ficha/ficha.cpp ficha/equipamento.cpp mecanicas/funcoes.cpp mecanicas/combate.cpp
-OBJ = $(SRC:.cpp=.o)
-EXEC = jogo
-
-all: $(EXEC)
-
-$(EXEC): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(EXEC)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-clean:
-	rm -f $(OBJ) $(EXEC)
-
-```
-
-Com o `Makefile` criado, basta rodar o comando:
-
-```bash
-make
-
-```
-
----
-
 ## 🎮 Como Executar
 
 Após realizar a compilação com sucesso usando qualquer um dos métodos acima, um arquivo executável terá sido gerado na raiz do projeto. Para iniciar o jogo, utilize:
